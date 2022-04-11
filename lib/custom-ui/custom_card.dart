@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:whatsapp_clone/model/chat_model.dart';
 import 'package:whatsapp_clone/model/chat_model.dart';
 import 'package:whatsapp_clone/screens/individualpage.dart';
 
@@ -18,7 +15,7 @@ class Customcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => individualpage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => individualpage(chat: chat,)));
       },
       child: Column(
         children: [
