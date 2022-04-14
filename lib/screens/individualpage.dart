@@ -118,7 +118,7 @@ class _individualpageState extends State<individualpage> {
                         width: MediaQuery
                             .of(context)
                             .size
-                            .width - 78,
+                            .width - 55,
                         child: Card(
                             margin: EdgeInsets.only(left: 5, right: 5, bottom: 5),
                             shape: RoundedRectangleBorder(
@@ -148,7 +148,11 @@ class _individualpageState extends State<individualpage> {
                                       children: [
                                         IconButton(color: Color(0xFF075E54),
                                           icon: (Icon(Icons.attach_file)),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                          showModalBottomSheet(
+                                              backgroundColor:Colors.transparent,
+                                              context: context, builder: (builder)=>bottomsheet());
+                                          },
                                         ),
                                         IconButton(color: Color(0xFF075E54),
                                           icon: (Icon(Icons.camera_alt)),
@@ -163,7 +167,7 @@ class _individualpageState extends State<individualpage> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 5, left: 2),
                         child: CircleAvatar(
-                          backgroundColor: Color(0xFF075E54), radius: 20,
+                          backgroundColor: Color(0xFF075E54), radius: 25,
                           child: IconButton(
                             color: Color(0xFFFFFFFF), icon: Icon(Icons.mic),
                             onPressed: () {},),
@@ -215,6 +219,7 @@ class _individualpageState extends State<individualpage> {
               )
             ],
           ),
+
           onWillPop: (){
             if(isEmojiVisible){
               setState(() {
@@ -229,6 +234,57 @@ class _individualpageState extends State<individualpage> {
           },
         ),
       ),
+    );
+  }
+  Widget bottomsheet(){
+    return Container(
+      margin: EdgeInsetsDirectional.all(6),
+      height: 260,
+      width: MediaQuery.of(context).size.width,
+      child: Card(
+        margin: EdgeInsets.all(5),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(25))),
+        
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                iconreaction(Icons.insert_drive_file,Colors.deepPurpleAccent,"Document"),
+                SizedBox(width: 40,),
+                iconreaction(Icons.camera_alt,Colors.pink,"Camera"),
+                SizedBox(width: 40,),
+                iconreaction(Icons.insert_photo,Colors.purpleAccent,"Gallery"),
+              ],
+            ),
+            SizedBox(height: 28,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                iconreaction(Icons.audio_file,Colors.deepOrange,"Audio"),
+                SizedBox(width: 40,),
+                iconreaction(Icons.location_on,Colors.green,"Location"),
+                SizedBox(width: 40,),
+                iconreaction(Icons.person,Colors.indigo,"Contact"),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  Widget iconreaction(IconData icon,Color color,String text){
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundColor: color,
+          child: IconButton(onPressed: () {  }, icon: Icon(icon,size: 25,color: Colors.white,
+          ),),
+        ),
+        Text(text),
+      ],
     );
   }
 }
