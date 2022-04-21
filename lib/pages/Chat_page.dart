@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/custom-ui/custom_card.dart';
 import 'package:whatsapp_clone/model/chat_model.dart';
+import 'package:whatsapp_clone/screens/contact.dart';
 
 class Chatpage extends StatefulWidget {
   const Chatpage({Key? key}) : super(key: key);
@@ -19,7 +20,9 @@ class _ChatpageState extends State<Chatpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder:(builder)=>SelectContact()));
+        },
         child: Icon(Icons.chat),
       ),
       body: ListView.builder(
