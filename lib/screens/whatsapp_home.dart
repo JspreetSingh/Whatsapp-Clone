@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/pages/Chat_page.dart';
+import 'package:whatsapp_clone/pages/camera.dart';
 
 class WhatsappHome extends StatefulWidget {
   const WhatsappHome({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class _WhatsappHomeState extends State<WhatsappHome>with SingleTickerProviderSta
       body: TabBarView(
         controller: controller,
         children: [
-          Text("Camera"),
+          Camera(),
           Chatpage(),
           Text("Status"),
           Text("Calls"),

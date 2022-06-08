@@ -5,7 +5,7 @@ class chatModel{
   String time;
   String currentMessage;
 
-  chatModel(this.name,this.icon,this.currentMessage,this.isGroup,this.time);
+  chatModel(this.name,this.icon,this.currentMessage,this.isGroup,this.time,);
 }
 
 class contact{
@@ -13,15 +13,13 @@ class contact{
   String status;
   bool select=false;
 
-
-
-  contact(this.name,this.status);
+  contact( this.name, this.status, {bool select=false});
 
 }
 
 class contact1{
   bool select=false;
 
-  contact1();
+  contact1({this.select=false});
 
 }

@@ -16,11 +16,11 @@ class _SelectContactState extends State<SelectContact> {
   Widget build(BuildContext context) {
 
     List<contact> contacts=[
-      contact("Vasu Goel", "Hare Krishna✨"),
-      contact("Adi", "Jai Mata Di"),
-      contact("Naman", "Never let the kid die inside you...Be curious. Be amazed.Be you"),
-      contact("Isra", ""),
-      contact("Vama", "Be a candle in the dark"),
+      contact("Vasu Goel",  "Hare Krishna✨",),
+      contact( "Adi",  "Jai Mata Di", ),
+      contact( "Naman",  "Never let the kid die inside you...Be curious. Be amazed.Be you",),
+      contact( "Isra",  "", ),
+      contact( "Vama",  "Be a candle in the dark", ),
     ];
     return Scaffold(
 
