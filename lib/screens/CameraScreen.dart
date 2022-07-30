@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:whatsapp_clone/screens/Cameraview.dart';
+import 'package:whatsapp_clone/screens/Videoview.dart';
 
 
 late  List<CameraDescription> cameras;
@@ -18,6 +19,9 @@ class _CameraScreenState extends State<CameraScreen> {
    late CameraController _cameraController;
 
   late Future<void> cameraValue;
+   bool isrecording= false;
+   var videopath;
+
   @override
   void initState()
   {
@@ -59,8 +63,28 @@ class _CameraScreenState extends State<CameraScreen> {
 
                     children: [
                       IconButton(onPressed: (){}, icon:Icon(Icons.flash_off,size: 28,color: Colors.white)),
-                      InkWell(onTap: (){takephoto(context);},
-                      child: Icon(Icons.panorama_fish_eye,size: 70,color: Colors.white,),
+                      GestureDetector(
+                        onLongPress: ()async{
+                          final video=join((await getTemporaryDirectory()).path,"${DateTime.now()}.mp4");
+                          //final video=await _cameraController.startVideoRecording();
+                          setState(() {
+                            isrecording=true;
+                            videopath=video;
+                          });
+                          //Navigator.push(context, MaterialPageRoute(builder: (builder)=> CameraView(path: videopath)));
+                        },
+                        onLongPressUp: ()async{
+                          await _cameraController.stopVideoRecording();
+                          setState(() {
+                            isrecording=false;
+                          });
+                           Navigator.push(context, MaterialPageRoute(builder: (builder)=> VideoView(path: videopath)));
+                        },
+                        onTap: (){
+                          if(!isrecording)
+                            takephoto(context);},
+                      child: isrecording? Icon(Icons.radio_button_on,size: 80,color: Colors.red,):
+                      Icon(Icons.panorama_fish_eye,size: 70,color: Colors.white,),
                       ),
                       IconButton(onPressed: (){}, icon:Icon(Icons.flip_camera_android,size: 28,color: Colors.white)),
                     ],

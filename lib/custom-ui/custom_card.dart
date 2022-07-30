@@ -7,7 +7,8 @@ import 'package:whatsapp_clone/screens/individualpage.dart';
 import '../model/chat_model.dart';
 
 class Customcard extends StatelessWidget {
-  const Customcard({Key? key,required this.chat}) : super();
+  const Customcard({Key? key,required this.chat,required this.chatSource}) : super();
+  final chatModel chatSource;
 
   final chatModel chat;
 
@@ -15,7 +16,7 @@ class Customcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => individualpage(chat: chat,)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => individualpage(chat: chat,chatSource: chatSource,)));
       },
       child: Column(
         children: [

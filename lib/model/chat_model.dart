@@ -4,8 +4,9 @@ class chatModel{
   bool isGroup;
   String time;
   String currentMessage;
+  int id;
 
-  chatModel(this.name,this.icon,this.currentMessage,this.isGroup,this.time,);
+  chatModel(this.name,this.icon,this.currentMessage,this.isGroup,this.time,this.id);
 }
 
 class contact{

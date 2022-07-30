@@ -3,6 +3,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/screens/CameraScreen.dart';
+import 'package:whatsapp_clone/screens/login%20screen.dart';
 import 'package:whatsapp_clone/screens/whatsapp_home.dart';
 
 Future<void> main() async {
@@ -25,7 +26,7 @@ class whatsapp extends StatelessWidget {
         //fontFamily: "OpenSans",
         primaryColor: const Color(0xFF075E54), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF075E54))
       ),
-      home: WhatsappHome(),
+      home: LoginScreen(),
     );
   }
 }

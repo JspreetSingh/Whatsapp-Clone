@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/model/chat_model.dart';
 import 'package:whatsapp_clone/pages/Chat_page.dart';
 import 'package:whatsapp_clone/pages/camera.dart';
 
 class WhatsappHome extends StatefulWidget {
-  const WhatsappHome({Key? key}) : super(key: key);
+  const WhatsappHome({Key? key,required this.chats,required this.chatSource}) : super(key: key);
+  final List<chatModel> chats;
+  final chatModel chatSource;
 
   @override
   State<WhatsappHome> createState() => _WhatsappHomeState();
@@ -54,7 +57,7 @@ class _WhatsappHomeState extends State<WhatsappHome>with SingleTickerProviderSta
         controller: controller,
         children: [
           Camera(),
-          Chatpage(),
+          Chatpage(chats: widget.chats,chatSource: widget.chatSource,),
           Text("Status"),
           Text("Calls"),
         ],
