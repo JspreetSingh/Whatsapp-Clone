@@ -1,9 +1,17 @@
 // ignore_for_file: unnecessary_const
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/screens/CameraScreen.dart';
+import 'package:whatsapp_clone/screens/login%20screen.dart';
 import 'package:whatsapp_clone/screens/whatsapp_home.dart';
 
-void main() => runApp(const whatsapp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras =await availableCameras();
+  runApp(const whatsapp());
+}
 
 // ignore: camel_case_types
 class whatsapp extends StatelessWidget {
@@ -18,7 +26,7 @@ class whatsapp extends StatelessWidget {
         //fontFamily: "OpenSans",
         primaryColor: const Color(0xFF075E54), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xFF075E54))
       ),
-      home: WhatsappHome(),
+      home: LoginScreen(),
     );
   }
 }

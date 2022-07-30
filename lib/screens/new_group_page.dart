@@ -15,12 +15,13 @@ class _NewGroupState extends State<NewGroup> {
   Widget build(BuildContext context) {
 
     List<contact> contacts=[
-      contact("Vasu Goel", "Hare Krishna✨",),
-      contact("Adi", "Jai Mata Di",),
-      contact("Naman", "Never let the kid die inside you...Be curious. Be amazed.Be you",),
-      contact("Isra", "",),
-      contact("Vama", "Be a candle in the dark",),
+      contact("Vasu Goel",  "Hare Krishna✨",select:false),
+      contact( "Adi",  "Jai Mata Di",select: true ),
+      contact( "Naman",  "Never let the kid die inside you...Be curious. Be amazed.Be you",),
+      contact( "Isra",  "", ),
+      contact( "Vama",  "Be a candle in the dark",),
     ];
+
 
     List<contact> groups=[];
     return Scaffold(
@@ -36,25 +37,27 @@ class _NewGroupState extends State<NewGroup> {
           ],
         ),actions: [
         IconButton(onPressed: (){}, icon: Icon(Icons.search,),iconSize: 26,),
-
       ],
       ),
       body: ListView.builder(
           itemCount: contacts.length,
           itemBuilder: (context, index) {
             return InkWell(onTap:(){
-              if(contacts[index].select==false){
-                setState(() {
-                  contacts[index].select==true;
-                  groups.add(contacts[index]);
-                });
-              }
+              if(contacts[index].select==false)
+                {
+                  setState(() {
+                    contacts[index].select=true;
+                    groups.add(contacts[index]);
+                    print(groups.length);
+                  });
+                }
 
               else
                 {
                   setState(() {
-                    contacts[index].select==false;
+                    contacts[index].select=false;
                     groups.remove(contacts[index]);
+                    //print(groups);
                   });
                 }
             },child: ContactCard(conts: contacts[index],));

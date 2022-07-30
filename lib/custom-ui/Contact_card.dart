@@ -19,15 +19,14 @@ class ContactCard extends StatelessWidget {
               child: SvgPicture.asset("assets/person_black_36dp.svg",color: Colors.white,height: 30,width: 30 ),
               backgroundColor: Colors.blueGrey,
             ),
-            contact1().select?Positioned(
+            conts.select? Positioned(
               bottom: 4,
               right: 5,
               child: CircleAvatar(
                   backgroundColor: Colors.teal,
                   radius: 11,
                   child: Icon(Icons.check,color: Colors.white,size: 18,)),
-            ):
-                Container(),
+            ) : Container()
           ],
         ),
       ),
